@@ -12,6 +12,10 @@
 		2BEF59C51FE4043800D5897C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BEF59C31FE4043800D5897C /* Main.storyboard */; };
 		2BEF59C71FE4043800D5897C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BEF59C61FE4043800D5897C /* Assets.xcassets */; };
 		2BEF59CA1FE4043800D5897C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BEF59C81FE4043800D5897C /* LaunchScreen.storyboard */; };
+		2BEF59D21FE4054D00D5897C /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF59D11FE4054D00D5897C /* StationCell.swift */; };
+		2BEF59D41FE405FD00D5897C /* station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF59D31FE405FD00D5897C /* station.swift */; };
+		2BEF59D61FE40D1C00D5897C /* stationAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF59D51FE40D1C00D5897C /* stationAPIClient.swift */; };
+		2BEF59DE1FE46F5400D5897C /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF59DD1FE46F5400D5897C /* viewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		2BEF59C61FE4043800D5897C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BEF59C91FE4043800D5897C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BEF59CB1FE4043800D5897C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BEF59D11FE4054D00D5897C /* StationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
+		2BEF59D31FE405FD00D5897C /* station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = station.swift; sourceTree = "<group>"; };
+		2BEF59D51FE40D1C00D5897C /* stationAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stationAPIClient.swift; sourceTree = "<group>"; };
+		2BEF59DD1FE46F5400D5897C /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +64,14 @@
 			children = (
 				2BEF59BF1FE4043800D5897C /* AppDelegate.swift */,
 				2BEF59C11FE4043800D5897C /* ViewController.swift */,
+				2BEF59D31FE405FD00D5897C /* station.swift */,
+				2BEF59D51FE40D1C00D5897C /* stationAPIClient.swift */,
 				2BEF59C31FE4043800D5897C /* Main.storyboard */,
+				2BEF59D11FE4054D00D5897C /* StationCell.swift */,
 				2BEF59C61FE4043800D5897C /* Assets.xcassets */,
 				2BEF59C81FE4043800D5897C /* LaunchScreen.storyboard */,
 				2BEF59CB1FE4043800D5897C /* Info.plist */,
+				2BEF59DD1FE46F5400D5897C /* viewModel.swift */,
 			);
 			path = CityBikes;
 			sourceTree = "<group>";
@@ -138,6 +150,10 @@
 			files = (
 				2BEF59C21FE4043800D5897C /* ViewController.swift in Sources */,
 				2BEF59C01FE4043800D5897C /* AppDelegate.swift in Sources */,
+				2BEF59D41FE405FD00D5897C /* station.swift in Sources */,
+				2BEF59D21FE4054D00D5897C /* StationCell.swift in Sources */,
+				2BEF59DE1FE46F5400D5897C /* viewModel.swift in Sources */,
+				2BEF59D61FE40D1C00D5897C /* stationAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
