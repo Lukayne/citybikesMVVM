@@ -55,5 +55,8 @@ class ViewController: UITableViewController {
         cell.detailTextLabel?.text = viewModel.numberOfFreeBikesToDisplay(for: indexPath)
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: viewModel.userSelectRowAt(for: indexPath), sender: self)
+    }
 }
 

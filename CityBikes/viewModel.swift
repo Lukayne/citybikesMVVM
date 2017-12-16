@@ -11,22 +11,13 @@ import Foundation
 class ViewModel: NSObject {
     @IBOutlet var apiClient: StationAPI!
     
+    var malmoResponse: Stations?
     var stations: [Stations]?
-    
-    //    struct ObjectWannaBe {
-    //        var sectionName: String
-    //        var sectionObject: [String]!
-    //    }
-    //    var objectsArray: [ObjectWannaBe]?
-    
-    //    func generateValue() {
-    //        objectsArray = [ObjectWannaBe(sectionName: "Section 1", sectionObject: ["111","22","333"]), ObjectWannaBe(sectionName: "Okej", sectionObject: ["222", "IDIOT"])]
-    //    }
     
     func getStationsLund(completion: @escaping () -> Void) {
         apiClient.fetchLundStations { (arrayOfStationsDictionaries) in
             DispatchQueue.main.async {
-                self.stations?.insert(arrayOfStationsDictionaries, at: 1)
+                self.stations = [arrayOfStationsDictionaries]
                 completion()
             }
         }
@@ -34,7 +25,8 @@ class ViewModel: NSObject {
     func getStationsMalmo(completion: @escaping () -> Void) {
         apiClient.fetchMalmoStations { (arrayOfStationsDictionaries) in
             DispatchQueue.main.async {
-                self.stations?.insert(arrayOfStationsDictionaries, at: 0)
+                self.malmoResponse = arrayOfStationsDictionaries
+                self.stations?.append(self.malmoResponse!)
                 completion()
             }
         }
@@ -66,6 +58,9 @@ class ViewModel: NSObject {
             return String(describing: stations?[indexPath.section].stations[indexPath.row].freeBikes)
         }
         //        return objectsArray?[indexPath.section].sectionObject[indexPath.row] ?? ""
+    }
+    func userSelectRowAt(for indexPath: IndexPath) -> String {
+        return stations?[indexPath.section].stations[indexPath.row].name ?? ""
     }
 }
 
