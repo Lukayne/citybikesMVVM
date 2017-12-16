@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B370D531FE4A6C10091DD64 /* asdad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B370D521FE4A6C10091DD64 /* asdad.swift */; };
 		2BEF59C01FE4043800D5897C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF59BF1FE4043800D5897C /* AppDelegate.swift */; };
 		2BEF59C21FE4043800D5897C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF59C11FE4043800D5897C /* ViewController.swift */; };
 		2BEF59C51FE4043800D5897C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BEF59C31FE4043800D5897C /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B370D521FE4A6C10091DD64 /* asdad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asdad.swift; sourceTree = "<group>"; };
 		2BEF59BC1FE4043800D5897C /* CityBikes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityBikes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BEF59BF1FE4043800D5897C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BEF59C11FE4043800D5897C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				2BEF59C81FE4043800D5897C /* LaunchScreen.storyboard */,
 				2BEF59CB1FE4043800D5897C /* Info.plist */,
 				2BEF59DD1FE46F5400D5897C /* viewModel.swift */,
+				2B370D521FE4A6C10091DD64 /* asdad.swift */,
 			);
 			path = CityBikes;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			files = (
 				2BEF59C21FE4043800D5897C /* ViewController.swift in Sources */,
 				2BEF59C01FE4043800D5897C /* AppDelegate.swift in Sources */,
+				2B370D531FE4A6C10091DD64 /* asdad.swift in Sources */,
 				2BEF59D41FE405FD00D5897C /* station.swift in Sources */,
 				2BEF59D21FE4054D00D5897C /* StationCell.swift in Sources */,
 				2BEF59DE1FE46F5400D5897C /* viewModel.swift in Sources */,

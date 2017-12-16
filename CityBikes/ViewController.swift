@@ -19,9 +19,16 @@ class ViewController: UITableViewController {
         viewModel.getStationsMalmo {
             self.tableView.reloadData()
         }
+//        DispatchQueue.main.async {
+//            self.viewModel.generateValue()
+//            self.tableView.reloadData()
+//        }
         
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +41,9 @@ class ViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         print(viewModel.numberOfLocationsToDisplay())
         return viewModel.numberOfLocationsToDisplay()
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.nameForSectionToDisplay(section: section)
     }
     
 
