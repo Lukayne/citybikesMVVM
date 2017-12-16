@@ -56,7 +56,14 @@ class ViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: viewModel.userSelectRowAt(for: indexPath), sender: self)
+        
+        performSegue(withIdentifier: "detaileddesc", sender: viewModel.userSelectRowAt(for: indexPath))
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detaileddesc" {
+            let destVC = segue.destination as! DetailedViewController
+            destVC.station = sender as? Station
+        }
     }
 }
 

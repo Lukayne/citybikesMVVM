@@ -52,15 +52,16 @@ class ViewModel: NSObject {
         
     }
     func numberOfFreeBikesToDisplay(for indexPath: IndexPath) -> String {
-        if stations?[indexPath.section].stations[indexPath.row].freeBikes == 0 {
-            return ""
+        if let station = stations?[indexPath.section].stations[indexPath.row].freeBikes {
+            return String(station)
         } else {
-            return String(describing: stations?[indexPath.section].stations[indexPath.row].freeBikes)
+            return ""
         }
         //        return objectsArray?[indexPath.section].sectionObject[indexPath.row] ?? ""
     }
-    func userSelectRowAt(for indexPath: IndexPath) -> String {
-        return stations?[indexPath.section].stations[indexPath.row].name ?? ""
+    func userSelectRowAt(for indexPath: IndexPath) -> Station {
+        print(stations![indexPath.section].stations[indexPath.row])
+        return stations![indexPath.section].stations[indexPath.row] ?? Station(emptySlots: nil, freeBikes: nil, latitude: nil, longitude: nil, name: "")
     }
 }
 

@@ -14,7 +14,7 @@ class StationAPI: NSObject {
         let url = URL(string: jsonUrlString)
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            guard let data = data else{ return}
+            guard let data = data else { return }
             do {
                 let jsonResponse = try JSONDecoder().decode(Network.self, from: data)
                 completion(jsonResponse.network)

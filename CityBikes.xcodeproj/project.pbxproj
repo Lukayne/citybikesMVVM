@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B370D531FE4A6C10091DD64 /* asdad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B370D521FE4A6C10091DD64 /* asdad.swift */; };
+		2B8011071FE4C4DD004FF249 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8011061FE4C4DD004FF249 /* DetailedViewController.swift */; };
+		2B80110B1FE4E804004FF249 /* detailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B80110A1FE4E804004FF249 /* detailedViewModel.swift */; };
 		2BEF59C01FE4043800D5897C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF59BF1FE4043800D5897C /* AppDelegate.swift */; };
 		2BEF59C21FE4043800D5897C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEF59C11FE4043800D5897C /* ViewController.swift */; };
 		2BEF59C51FE4043800D5897C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BEF59C31FE4043800D5897C /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		2B370D521FE4A6C10091DD64 /* asdad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asdad.swift; sourceTree = "<group>"; };
+		2B8011061FE4C4DD004FF249 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		2B80110A1FE4E804004FF249 /* detailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailedViewModel.swift; sourceTree = "<group>"; };
 		2BEF59BC1FE4043800D5897C /* CityBikes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityBikes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BEF59BF1FE4043800D5897C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BEF59C11FE4043800D5897C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			children = (
 				2BEF59BF1FE4043800D5897C /* AppDelegate.swift */,
 				2BEF59C11FE4043800D5897C /* ViewController.swift */,
+				2B8011061FE4C4DD004FF249 /* DetailedViewController.swift */,
 				2BEF59D31FE405FD00D5897C /* station.swift */,
 				2BEF59D51FE40D1C00D5897C /* stationAPIClient.swift */,
 				2BEF59C31FE4043800D5897C /* Main.storyboard */,
@@ -74,6 +79,7 @@
 				2BEF59C81FE4043800D5897C /* LaunchScreen.storyboard */,
 				2BEF59CB1FE4043800D5897C /* Info.plist */,
 				2BEF59DD1FE46F5400D5897C /* viewModel.swift */,
+				2B80110A1FE4E804004FF249 /* detailedViewModel.swift */,
 				2B370D521FE4A6C10091DD64 /* asdad.swift */,
 			);
 			path = CityBikes;
@@ -153,10 +159,12 @@
 			files = (
 				2BEF59C21FE4043800D5897C /* ViewController.swift in Sources */,
 				2BEF59C01FE4043800D5897C /* AppDelegate.swift in Sources */,
+				2B8011071FE4C4DD004FF249 /* DetailedViewController.swift in Sources */,
 				2B370D531FE4A6C10091DD64 /* asdad.swift in Sources */,
 				2BEF59D41FE405FD00D5897C /* station.swift in Sources */,
 				2BEF59D21FE4054D00D5897C /* StationCell.swift in Sources */,
 				2BEF59DE1FE46F5400D5897C /* viewModel.swift in Sources */,
+				2B80110B1FE4E804004FF249 /* detailedViewModel.swift in Sources */,
 				2BEF59D61FE40D1C00D5897C /* stationAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

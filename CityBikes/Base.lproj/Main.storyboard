@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,6 +51,7 @@
                     </tableView>
                     <connections>
                         <outlet property="viewModel" destination="eMb-OY-4ma" id="K8s-8g-Yaa"/>
+                        <segue destination="rhN-Bm-Oze" kind="presentation" identifier="detaileddesc" id="zQl-9b-1rq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiq-m2-fh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,7 +62,47 @@
                 </customObject>
                 <customObject id="bla-ua-tYv" customClass="StationAPI" customModule="CityBikes" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-127" y="108"/>
+            <point key="canvasLocation" x="-58" y="107"/>
+        </scene>
+        <!--Detailed View Controller-->
+        <scene sceneID="pU2-Mx-gOh">
+            <objects>
+                <viewController id="rhN-Bm-Oze" customClass="DetailedViewController" customModule="CityBikes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d5Z-sJ-2RS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaa-es-HPY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vle-fL-Syi">
+                                <rect key="frame" x="8" y="0.0" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="goBackToVC:" destination="rhN-Bm-Oze" eventType="touchUpInside" id="9XX-Cw-B8x"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aaa-es-HPY" secondAttribute="trailing" id="8A9-ao-heX"/>
+                            <constraint firstItem="aaa-es-HPY" firstAttribute="top" secondItem="d5Z-sJ-2RS" secondAttribute="top" id="Ym1-ip-zXg"/>
+                            <constraint firstItem="aaa-es-HPY" firstAttribute="bottom" secondItem="Szb-pO-UhL" secondAttribute="bottom" id="cDi-le-wrk"/>
+                            <constraint firstItem="aaa-es-HPY" firstAttribute="leading" secondItem="d5Z-sJ-2RS" secondAttribute="leading" id="sVS-UW-MWd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Szb-pO-UhL"/>
+                    </view>
+                    <connections>
+                        <outlet property="backBtn" destination="Vle-fL-Syi" id="pge-PV-rPH"/>
+                        <outlet property="detailedViewModel" destination="v21-pH-yyZ" id="CNH-9A-060"/>
+                        <outlet property="mapView" destination="aaa-es-HPY" id="03h-gv-9mk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTk-B8-yIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="v21-pH-yyZ" customClass="DetaliedViewModel" customModule="CityBikes" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="776.79999999999995" y="106.59670164917542"/>
         </scene>
     </scenes>
 </document>
