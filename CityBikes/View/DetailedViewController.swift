@@ -52,14 +52,18 @@ class DetailedViewController: UIViewController, MKMapViewDelegate  {
         let pin = StationAnnotation(coordinate: location, title: detailedViewModel.setTitle(title: station?.name), subtitle: detailedViewModel.setSubtitle(numberOfAvaliableBikes: station?.freeBikes, numberOfSlots: station?.emptySlots))
         mapView.addAnnotation(pin)
         
-//        detailedViewModel.stationOfStations(stations: allStationsWithoutNil)
+        let loopedStation: [Station] = [detailedViewModel.stationOfStations(stations: allStationsWithoutNil)]
         
-//            for station in allStationsWithoutNil {
-//                let annotation = MKPointAnnotation()
-//                annotation.title = station.stations
-//                annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-//                mapView.addAnnotation(annotation)
-//        }
+        
+        for stata in loopedStation {
+                let annotation = MKPointAnnotation()
+                let stataLat = detailedViewModel.setLatitude(latitude: stata.latitude)
+                let stataLong = detailedViewModel.setLongitude(longitude: stata.longitude)
+                annotation.title = detailedViewModel.setTitle(title: stata.name)
+                annotation.subtitle = detailedViewModel.setSubtitle(numberOfAvaliableBikes: stata.freeBikes, numberOfSlots: stata.emptySlots)
+                annotation.coordinate = CLLocationCoordinate2D(latitude: stataLat, longitude: stataLong)
+                mapView.addAnnotation(annotation)
+        }
     
     
         
