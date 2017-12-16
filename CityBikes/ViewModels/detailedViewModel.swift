@@ -44,4 +44,28 @@ class DetaliedViewModel: NSObject {
             return 0.000
         }
     }
+    func loadAllStations(stations: [Stations]?, station: Station?) -> ([Stations])  {
+        if let stations = stations, let station = station {
+            return stations
+        } else {
+            return [Stations]()
+        }
+    }
+    func loadOneStation(stations: [Stations]?, station: Station?) -> (Station)  {
+        if let stations = stations, let station = station {
+            return station
+        } else {
+            return Station(emptySlots: nil, freeBikes: nil, latitude: nil, longitude: nil, name: "")
+        }
+    }
+//    func stationOfStations(stations: [Stations]) -> Station {
+//        for stat in stations {
+//            let stata = stat.stations
+//            for sta in stata {
+//                let station = sta
+//                return station
+//            }
+//        }
+//    }
+    
 }

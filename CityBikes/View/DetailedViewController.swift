@@ -25,7 +25,6 @@ final class StationAnnotation: NSObject, MKAnnotation {
 
 class DetailedViewController: UIViewController, MKMapViewDelegate  {
     
-    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet var detailedViewModel: DetaliedViewModel!
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
@@ -33,28 +32,55 @@ class DetailedViewController: UIViewController, MKMapViewDelegate  {
             mapView.delegate = self
         }
     }
+    var locationManager = CLLocationManager()
     
     var station: Station?
+    var allStations: [Stations]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let allStationsWithoutNil = detailedViewModel.loadAllStations(stations: allStations, station: station)
+        let stationWithoutNil = detailedViewModel.loadOneStation(stations: allStations, station: station)
+        
         let longitude = detailedViewModel.setLongitude(longitude: station?.longitude)
         let latitude = detailedViewModel.setLatitude(latitude: station?.latitude)
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(location, 1500, 1500), animated: true)
+        
         let pin = StationAnnotation(coordinate: location, title: detailedViewModel.setTitle(title: station?.name), subtitle: detailedViewModel.setSubtitle(numberOfAvaliableBikes: station?.freeBikes, numberOfSlots: station?.emptySlots))
         mapView.addAnnotation(pin)
         
+//        detailedViewModel.stationOfStations(stations: allStationsWithoutNil)
+        
+//            for station in allStationsWithoutNil {
+//                let annotation = MKPointAnnotation()
+//                annotation.title = station.stations
+//                annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+//                mapView.addAnnotation(annotation)
+//        }
+    
+    
+        
         // Do any additional setup after loading the view.
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        checkUserAuthorizationStatus()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func goBackToVC(_ sender: Any) {
-        
+    func checkUserAuthorizationStatus() {
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation == true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
+}
+extension DetailedViewController : CLLocationManagerDelegate {
     
 }

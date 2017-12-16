@@ -60,8 +60,7 @@ class ViewModel: NSObject {
         //        return objectsArray?[indexPath.section].sectionObject[indexPath.row] ?? ""
     }
     func userSelectRowAt(for indexPath: IndexPath) -> Station {
-        print(stations![indexPath.section].stations[indexPath.row])
-        return stations![indexPath.section].stations[indexPath.row] ?? Station(emptySlots: nil, freeBikes: nil, latitude: nil, longitude: nil, name: "")
+        return stations?[indexPath.section].stations[indexPath.row] ?? Station(emptySlots: nil, freeBikes: nil, latitude: nil, longitude: nil, name: "")
     }
 }
 

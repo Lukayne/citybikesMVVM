@@ -39,7 +39,6 @@ class ViewController: UITableViewController {
         return viewModel.numberOfItemsToDisplay(in: section)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        print(viewModel.numberOfLocationsToDisplay())
         return viewModel.numberOfLocationsToDisplay()
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -56,7 +55,6 @@ class ViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         performSegue(withIdentifier: "detaileddesc", sender: viewModel.userSelectRowAt(for: indexPath))
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,6 +62,13 @@ class ViewController: UITableViewController {
             let destVC = segue.destination as! DetailedViewController
             destVC.station = sender as? Station
         }
+        if segue.identifier == "allstationsdesc" {
+            let destVC = segue.destination as! DetailedViewController
+            destVC.allStations = sender as? [Stations]
+        }
+    }
+    @IBAction func showAllLocations(_ sender: Any) {
+        performSegue(withIdentifier: "allstationsdesc", sender: viewModel.stations)
     }
 }
 
