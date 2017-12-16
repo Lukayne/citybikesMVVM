@@ -43,16 +43,16 @@ class DetailedViewController: UIViewController, MKMapViewDelegate  {
         let allStationsWithoutNil = detailedViewModel.loadAllStations(stations: allStations, station: station)
         let stationWithoutNil = detailedViewModel.loadOneStation(stations: allStations, station: station)
         
-        let longitude = detailedViewModel.setLongitude(longitude: station?.longitude)
-        let latitude = detailedViewModel.setLatitude(latitude: station?.latitude)
-        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//        let longitude = detailedViewModel.setLongitude(longitude: station?.longitude)
+//        let latitude = detailedViewModel.setLatitude(latitude: station?.latitude)
+//        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//
+//        mapView.setRegion(MKCoordinateRegionMakeWithDistance(location, 1500, 1500), animated: true)
+//
+//        let pin = StationAnnotation(coordinate: location, title: detailedViewModel.setTitle(title: station?.name), subtitle: detailedViewModel.setSubtitle(numberOfAvaliableBikes: station?.freeBikes, numberOfSlots: station?.emptySlots))
+//        mapView.addAnnotation(pin)
         
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(location, 1500, 1500), animated: true)
-        
-        let pin = StationAnnotation(coordinate: location, title: detailedViewModel.setTitle(title: station?.name), subtitle: detailedViewModel.setSubtitle(numberOfAvaliableBikes: station?.freeBikes, numberOfSlots: station?.emptySlots))
-        mapView.addAnnotation(pin)
-        
-        let loopedStation: [Station] = [detailedViewModel.stationOfStations(stations: allStationsWithoutNil)]
+        let loopedStation: [Station] = detailedViewModel.stationOfStations(stations: allStationsWithoutNil)
         
         
         for stata in loopedStation {
@@ -63,6 +63,7 @@ class DetailedViewController: UIViewController, MKMapViewDelegate  {
                 annotation.subtitle = detailedViewModel.setSubtitle(numberOfAvaliableBikes: stata.freeBikes, numberOfSlots: stata.emptySlots)
                 annotation.coordinate = CLLocationCoordinate2D(latitude: stataLat, longitude: stataLong)
                 mapView.addAnnotation(annotation)
+                mapView.setRegion(MKCoordinateRegionMakeWithDistance((annotation.coordinate), 1500, 1500), animated: true)
         }
     
     

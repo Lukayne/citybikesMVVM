@@ -58,16 +58,12 @@ class DetaliedViewModel: NSObject {
             return Station(emptySlots: nil, freeBikes: nil, latitude: nil, longitude: nil, name: "")
         }
     }
-    func stationOfStations(stations: [Stations]) -> Station {
+    func stationOfStations(stations: [Stations]) -> [Station] {
         for stat in stations {
             let stata = stat.stations
-            for sta in stata {
-                let station = sta
-                print(sta)
-                return station
-            }
+            return stata
         }
-        return Station(emptySlots: nil, freeBikes: nil, latitude: nil, longitude: nil, name: "")
+        return [Station(emptySlots: nil, freeBikes: nil, latitude: nil, longitude: nil, name: "")]
     }
     
 }
