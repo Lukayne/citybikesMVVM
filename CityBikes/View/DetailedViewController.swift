@@ -40,33 +40,30 @@ class DetailedViewController: UIViewController, MKMapViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let allStationsWithoutNil = detailedViewModel.loadAllStations(stations: allStations, station: station)
-        let stationWithoutNil = detailedViewModel.loadOneStation(stations: allStations, station: station)
+        let longitude = detailedViewModel.setLongitude(longitude: station?.longitude)
+        let latitude = detailedViewModel.setLatitude(latitude: station?.latitude)
+        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
-//        let longitude = detailedViewModel.setLongitude(longitude: station?.longitude)
-//        let latitude = detailedViewModel.setLatitude(latitude: station?.latitude)
-//        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-//
-//        mapView.setRegion(MKCoordinateRegionMakeWithDistance(location, 1500, 1500), animated: true)
-//
-//        let pin = StationAnnotation(coordinate: location, title: detailedViewModel.setTitle(title: station?.name), subtitle: detailedViewModel.setSubtitle(numberOfAvaliableBikes: station?.freeBikes, numberOfSlots: station?.emptySlots))
-//        mapView.addAnnotation(pin)
+        mapView.setRegion(MKCoordinateRegionMakeWithDistance(location, 1500, 1500), animated: true)
+        
+        let pin = StationAnnotation(coordinate: location, title: detailedViewModel.setTitle(title: station?.name), subtitle: detailedViewModel.setSubtitle(numberOfAvaliableBikes: station?.freeBikes, numberOfSlots: station?.emptySlots))
+        mapView.addAnnotation(pin)
+        
+        let allStationsWithoutNil = detailedViewModel.loadAllStations(stations: allStations)
         
         let loopedStation: [Station] = detailedViewModel.stationOfStations(stations: allStationsWithoutNil)
-        
+
         
         for stata in loopedStation {
-                let annotation = MKPointAnnotation()
-                let stataLat = detailedViewModel.setLatitude(latitude: stata.latitude)
-                let stataLong = detailedViewModel.setLongitude(longitude: stata.longitude)
-                annotation.title = detailedViewModel.setTitle(title: stata.name)
-                annotation.subtitle = detailedViewModel.setSubtitle(numberOfAvaliableBikes: stata.freeBikes, numberOfSlots: stata.emptySlots)
-                annotation.coordinate = CLLocationCoordinate2D(latitude: stataLat, longitude: stataLong)
-                mapView.addAnnotation(annotation)
-                mapView.setRegion(MKCoordinateRegionMakeWithDistance((annotation.coordinate), 1500, 1500), animated: true)
+            mapView.userTrackingMode = .follow
+            let annotation = MKPointAnnotation()
+            let stataLat = detailedViewModel.setLatitude(latitude: stata.latitude)
+            let stataLong = detailedViewModel.setLongitude(longitude: stata.longitude)
+            annotation.title = detailedViewModel.setTitle(title: stata.name)
+            annotation.subtitle = detailedViewModel.setSubtitle(numberOfAvaliableBikes: stata.freeBikes, numberOfSlots: stata.emptySlots)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: stataLat, longitude: stataLong)
+            mapView.addAnnotation(annotation)
         }
-    
-    
         
         // Do any additional setup after loading the view.
     }
@@ -80,7 +77,7 @@ class DetailedViewController: UIViewController, MKMapViewDelegate  {
     func checkUserAuthorizationStatus() {
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            mapView.showsUserLocation == true
+            mapView.showsUserLocation = true
         } else {
             locationManager.requestWhenInUseAuthorization()
         }

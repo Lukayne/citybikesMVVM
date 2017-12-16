@@ -11,8 +11,8 @@ import Foundation
 class ViewModel: NSObject {
     @IBOutlet var apiClient: StationAPI!
     
-    var malmoResponse: Stations?
-    var stations: [Stations]?
+    private var malmoResponse: Stations?
+    private var stations: [Stations]?
     
     func getStationsLund(completion: @escaping () -> Void) {
         apiClient.fetchLundStations { (arrayOfStationsDictionaries) in
@@ -31,6 +31,10 @@ class ViewModel: NSObject {
             }
         }
     }
+    func getStations() -> [Stations] {
+        return self.stations ?? [Stations]()
+    }
+    
     func numberOfItemsToDisplay(in section: Int) -> Int {
         return stations?[section].stations.count ?? 0
         //        return objectsArray?[section].sectionObject.count ?? 0

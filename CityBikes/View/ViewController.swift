@@ -49,7 +49,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationcell", for: indexPath)
         
-        cell.textLabel?.text = viewModel.stationNameToDisplay(for: indexPath)
+       cell.textLabel?.text = viewModel.stationNameToDisplay(for: indexPath).capitalized
         
         cell.detailTextLabel?.text = viewModel.numberOfFreeBikesToDisplay(for: indexPath)
         return cell
@@ -68,7 +68,7 @@ class ViewController: UITableViewController {
         }
     }
     @IBAction func showAllLocations(_ sender: Any) {
-        performSegue(withIdentifier: "allstationsdesc", sender: viewModel.stations)
+        performSegue(withIdentifier: "allstationsdesc", sender: viewModel.getStations())
     }
 }
 
